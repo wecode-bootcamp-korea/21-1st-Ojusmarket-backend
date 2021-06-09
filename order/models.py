@@ -6,7 +6,7 @@ class OrderStatus(models.Model):
     status = models.CharField(max_length=15)
 
     class Meta:
-        db_table = 'order_statuses'
+        db_table = 'orders_statuses'
 
 class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)

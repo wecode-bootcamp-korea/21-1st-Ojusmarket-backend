@@ -15,7 +15,7 @@ class IngredientSubCategory(models.Model):
     main_category = models.ForeignKey(IngredientMainCategory, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'ingredient_sub_categories'
+        db_table = 'ingredients_sub_categories'
 
 class Ingredient(models.Model):
     name      = models.CharField(max_length=50)
