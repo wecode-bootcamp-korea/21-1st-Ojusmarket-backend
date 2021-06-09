@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'order',
     'ingredient',
     'like',
-    'point',
     'recipe'
 ]
 
