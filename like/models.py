@@ -1,12 +1,12 @@
 from django.db import models
 
-from user.models import User
 from ingredient.models import Ingredient
+from user.models import User
 
 class Like(models.Model):
-    date       = models.DateField()
-    user       = models.ForeignKey(User, on_delete=models.CASCADE)
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    created_at    = models.DateTimeField(auto_now_add=True)
+    user_id       = models.ForeignKey(User, on_delete=models.CASCADE,related_name='like_user')
+    ingredient_id = models.ForeignKey(Ingredient, on_delete=models.CASCADE,related_name='like_ingredient')
 
     class Meta:
         db_table = 'likes'
