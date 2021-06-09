@@ -4,16 +4,16 @@ from django.db.models.deletion import CASCADE
 from recipe.models import Recipe
 from user.models import User
 
-class MainCategoryIngredient(models.Model):
+class IngredientMainCategory(models.Model):
     name       = models.CharField(max_length=10)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        db_table = 'main_categories_ingredients'
+        db_table = 'ingredients_main_categories'
 
 class IngredientSubCategory(models.Model):
     name             = models.CharField(max_length=10)
-    main_category_id = models.ForeignKey(MainCategoryIngredient, on_delete=models.CASCADE)
+    main_category_id = models.ForeignKey(IngredientMainCategory, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'ingredient_sub_categories'

@@ -1,7 +1,5 @@
 from django.db import models
 
-
-
 class RecipeCategory(models.Model):
     name = models.CharField(max_length=10)
 
