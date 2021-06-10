@@ -1,4 +1,4 @@
-import json, re, bcrypt, jwt
+import json, bcrypt, jwt
 
 
 from django.views import View
