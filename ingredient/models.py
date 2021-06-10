@@ -5,7 +5,6 @@ from user.models import User
 
 class IngredientMainCategory(models.Model):
     name       = models.CharField(max_length=10)
-    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = 'ingredients_main_categories'
