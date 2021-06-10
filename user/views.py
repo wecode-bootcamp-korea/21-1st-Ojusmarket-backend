@@ -42,7 +42,6 @@ class UserSignUp(View):
 
             if User.objects.filter(
                 Q(identity=data['identity'])|
-                Q(name=data['name'])|
                 Q(phone=data['phone'])|
                 Q(email=data['email'])
             ).exists():

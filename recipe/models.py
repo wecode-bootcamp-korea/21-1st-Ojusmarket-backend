@@ -4,7 +4,7 @@ class RecipeCategory(models.Model):
     name = models.CharField(max_length=10)
 
     class Meta:
-        db_table = 'recipes_categories'
+        db_table = 'recipe_categories'
 
 class Recipe(models.Model):
     name      = models.CharField(max_length=20)
