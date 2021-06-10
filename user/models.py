@@ -6,7 +6,7 @@ class User(models.Model) :
     phone    = models.CharField(max_length=11, unique=True, null=False)
     name     = models.CharField(max_length=45, null=False)
     email    = models.CharField(max_length=45, unique=True, null=False)
-    address  = models.TextField(null=False)
+    address  = models.CharField(max_length=100, null=False)
 
     class Meta:
         db_table = 'users'
