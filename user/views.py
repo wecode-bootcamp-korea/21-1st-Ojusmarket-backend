@@ -26,17 +26,17 @@ class UserSignUp(View):
         try:
             data = json.loads(request.body)
 
-            re_identity = '(^(?=.*[a-z])(?=.*\d)[a-z\d]{5,15}$)'
-            re_password = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^~@$!%*#?&])[A-Za-z\d^~@$!#%*?&]{8,18}$'
-            re_phone    = '^[0-9]{3}[0-9]{4}[0-9]{4}$'
-            re_name     = '^[가-힣]+'
-            re_email    = '(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)'
+            REGEX_USER_IDENTITY = '(^(?=.*[a-z])(?=.*\d)[a-z\d]{5,15}$)'
+            REGEX_PASSWORD      = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^~@$!%*#?&])[A-Za-z\d^~@$!#%*?&]{8,18}$'
+            REGEX_PHONE         = '^[0-9]{3}[0-9]{4}[0-9]{4}$'
+            REGEX_NAME          = '^[가-힣]+'
+            REGEX_EMAIL         = '(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)'
 
-            if not re.match(re_identity, data['identity']) or\
-               not re.match(re_password, data['password']) or\
-               not re.match(re_phone, data['phone']) or\
-               not re.match(re_name, data['name']) or\
-               not re.match(re_email, data['email']):
+            if not re.match(REGEX_USER_IDENTITY, data['identity']) or\
+               not re.match(REGEX_PASSWORD, data['password']) or\
+               not re.match(REGEX_PHONE, data['phone']) or\
+               not re.match(REGEX_NAME, data['name']) or\
+               not re.match(REGEX_EMAIL, data['email']):
 
                 return JsonResponse({'message':'INVALID_INPUT'}, status=400)
 
