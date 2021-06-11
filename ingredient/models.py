@@ -7,7 +7,7 @@ class IngredientMainCategory(models.Model):
     name       = models.CharField(max_length=10)
 
     class Meta:
-        db_table = 'ingredients_main_categories'
+        db_table = 'ingredient_main_categories'
 
 class IngredientSubCategory(models.Model):
     name          = models.CharField(max_length=10)
@@ -34,4 +34,4 @@ class IngredientRecipe(models.Model):
     recipe     = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'ingredients_recipes'
+        db_table = 'ingredient_recipes'
