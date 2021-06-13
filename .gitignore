@@ -4,6 +4,7 @@
 my_settings.py
 *.csv
 
+db_uploader.py
 ### VisualStudioCode ###
 .vscode
 !.vscode/settings.json
