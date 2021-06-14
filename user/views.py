@@ -4,6 +4,7 @@ from django.views     import View
 from django.http      import JsonResponse
 from django.db.models import Q
 
+from .utils       import login_decorator
 from .models      import User
 from my_settings  import SECRET_KEY, ALGORITHM
 
