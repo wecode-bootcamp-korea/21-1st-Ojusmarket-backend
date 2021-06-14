@@ -1,17 +1,18 @@
 import json
+from user.models import User
 
 from django.views import View
 from django.http import JsonResponse
 
-from ingredient.models import Ingredient, IngredientMainCategory
-from recipe.models import Recipe
+from ingredient.models import Ingredient
 
-class MaincategoryView(View):
+class IngredientcategoriesView(View):
     def get(self, request):
-
-        ingredient_results = Ingredient.objects.all()
-
     
+        category_id = request.GET['category_id']
+
+        ingredient_results = Ingredient.objects.filter(category_id = category_id)
+
         result = []
 
         for ingredient_result in ingredient_results:
@@ -24,16 +25,23 @@ class MaincategoryView(View):
                 'image_url'   : ingredient_result.image_url
             })
 
-        recipe_results = Recipe.objects.all()
+        return JsonResponse({'ingredients' : result}, status=200)
 
-        recipes_result = []
+class IngredientsView(View):
+    def get(self, request):
+    
+        ingredient_results = Ingredient.objects.all()
 
-        for recipe_result in recipe_results:
-            recipes_result.append({
-                'id'          : recipe_result.id,
-                'name'        : recipe_result.name,
-                'image_url'   : recipe_result.image_url,
-                'category_id' : recipe_result.category_id
+        result = []
+
+        for ingredient_result in ingredient_results:
+            result.append({
+                'id'          : ingredient_result.id,
+                'name'        : ingredient_result.name,
+                'price'       : ingredient_result.price,
+                'storage'     : ingredient_result.storage,
+                'category_id' : ingredient_result.category.main_category_id,
+                'image_url'   : ingredient_result.image_url
             })
 
-        return JsonResponse({'ingredient':result, 'recipe': recipes_result}, status=200)
+        return JsonResponse({'ingredients' : result}, status=200)
