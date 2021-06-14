@@ -18,6 +18,7 @@ class IngredientView(View):
                 "id"               : ingredient.id,
                 "name"             : ingredient.name,
                 "price"            : ingredient.price,
+                "info"             : ingredient.info,
                 "storage"          : ingredient.storage,
                 "image_url"        : ingredient.image_url,
                 "related_recipe"   : recipe_list
