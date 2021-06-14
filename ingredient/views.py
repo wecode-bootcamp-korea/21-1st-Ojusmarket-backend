@@ -1,5 +1,3 @@
-import logging
-
 from django.core.exceptions import ObjectDoesNotExist
 from django.http            import JsonResponse
 from django.views           import View
