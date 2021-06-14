@@ -1,7 +1,6 @@
 from django.urls import path
-from ingredient.views import ShowIngredientInfo, ShowRecipeInfo
+from ingredient.views import IngredientInfo
 
 urlpatterns = [
-    path('/detail',ShowRecipeInfo.as_view()),
-    path('/detail',ShowIngredientInfo.as_view()),
+    path('/<int:ingredient_id>',IngredientInfo.as_view()),
 ]
