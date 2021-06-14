@@ -15,10 +15,10 @@ class RecipeInfo(View):
                 "name"      : ingredient.name,
                 "image_url" : ingredient.image_url} for ingredient in ingredient_info]
             info_dict = {
-                "id"        : recipe.id,
-                "name"      : recipe.name,
-                "image_url" : recipe.image_url, 
-                "related"   : ingredient_list
+                "id"                 : recipe.id,
+                "name"               : recipe.name,
+                "image_url"          : recipe.image_url, 
+                "related_ingredient" : ingredient_list
             }
             return JsonResponse({"recipe":info_dict})
         except ObjectDoesNotExist:
