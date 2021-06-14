@@ -5,7 +5,7 @@ from recipe.models          import Recipe
 from ingredient.models      import Ingredient
 
 
-class RecipeInfo(View):
+class RecipeView(View):
     def get (self,request,recipe_id): 
         try:
             recipe          = Recipe.objects.get(id = recipe_id) 
