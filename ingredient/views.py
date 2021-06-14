@@ -22,6 +22,6 @@ class IngredientInfo(View):
                 "image_url"        : ingredient.image_url,
                 "related_recipe"   : recipe_list
             }
-            return JsonResponse({"ingredients":info_dict})
+            return JsonResponse({"ingredient":info_dict})
         except ObjectDoesNotExist:
             return JsonResponse({"message":"Object does not exist"})
