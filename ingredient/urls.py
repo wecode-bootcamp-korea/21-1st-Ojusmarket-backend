@@ -1,15 +1,9 @@
 from django.urls import path
 from django.views.generic.base import View
 
-from .views import IngredientsView, IngredientcategoriesView
+from .views import IngredientsView
 
 urlpatterns = [
     path('', IngredientsView.as_view()),
-    path('/ingredient',IngredientcategoriesView.as_view()),
+    path('/ingredient',IngredientsView.as_view()),
 ]
-
-
-"http://:8000/ingredients"
-"http://:8000/ingredients?category_id=1"
-"http://:8000/ingredients/<ingredient_id>"
-"http://:8000/ingredients/1"

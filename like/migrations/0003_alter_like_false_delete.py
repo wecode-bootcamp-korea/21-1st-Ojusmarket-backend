@@ -4,11 +4,11 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
+    
     dependencies = [
         ('like', '0002_like_false_delete'),
     ]
-
+    
     operations = [
         migrations.AlterField(
             model_name='like',
@@ -16,3 +16,4 @@ class Migration(migrations.Migration):
             field=models.BooleanField(default=False),
         ),
     ]
+    
