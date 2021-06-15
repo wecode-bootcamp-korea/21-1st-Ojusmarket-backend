@@ -7,7 +7,7 @@ from .models import Order, OrderStatus
 from user.models import User
 from cart.models import Cart
 
-from utils import login_decorator
+from user.utils import login_decorator
 
 class OrderpageView(View):
     @login_decorator
@@ -22,7 +22,6 @@ class OrderpageView(View):
             
             order_info  = Order.objects.create(
                 cart    = Cart.objects.filter(user=user),
-                status  = OrderStatus.objects.get(id=1),
                 address = data.get('address', cart.user.address)
             )
 
@@ -36,12 +35,11 @@ class OrderpageView(View):
         try:
             user = request.user
             cart = Cart.objects.filter(user=user)
-            order = Order.objects.get(user=user)
         
             user_list = [{
-                'name'    : user.name,
-                'phone'   : user.phone,
-                'address' : user.address
+                'name'    : cart.user.name,
+                'phone'   : cart.user.phone,
+                'address' : cart.user.address
             }]
 
             return JsonResponse({'user' : user_list}, status=200)
@@ -60,10 +58,10 @@ class PaymentView(View):
             payment_list = [{
                 'name' : order.cart.user.name,
                 'address' : order.cart.user.address,
-                'price' : order.cart.ingredient.price
+                'price' : order.cart.ingredient.price * cart.count
             }]
 
+            return JsonResponse({'payment' : payment_list}, status=200)
 
         except KeyError:
             JsonResponse({'message' : 'KEYERROR'}, status=400)
-
