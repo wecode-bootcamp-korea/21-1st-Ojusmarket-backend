@@ -9,7 +9,7 @@ class RecipeView(View):
     def get (self, request, recipe_id): 
         try:
             recipe          = Recipe.objects.get(id=recipe_id) 
-            ingredient_all = recipe.ingredient_set.all()
+            ingredient_all  = recipe.ingredient_set.all()
             ingredient_list = [{
                 "id"        : ingredient.id,
                 "name"      : ingredient.name,

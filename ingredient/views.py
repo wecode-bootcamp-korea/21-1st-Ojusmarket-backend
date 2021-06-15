@@ -1,7 +1,6 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.http            import JsonResponse
 from django.views           import View
-from recipe.models          import Recipe
 from ingredient.models      import Ingredient
 
 
@@ -9,7 +8,7 @@ class IngredientView(View):
     def get (self, request, ingredient_id): 
         try: 
             ingredient  = Ingredient.objects.get(id=ingredient_id)
-            recipe_all=  ingredient.recipe.all()
+            recipe_all  = ingredient.recipe.all()
             recipe_list = [{
                 "id"        : recipe.id,
                 "name"      : recipe.name,
