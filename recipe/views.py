@@ -15,7 +15,6 @@ class RecipesView(View):
             q &= Q(category_id=category_id)
         recipes = Recipe.objects.filter(q)
 
-
         # CASE 2
         # recipes = Recipe.objects.all()
 
