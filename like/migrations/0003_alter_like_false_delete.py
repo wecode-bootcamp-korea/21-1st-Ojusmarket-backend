@@ -4,7 +4,7 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
+    
     dependencies = [
         ('like', '0002_like_false_delete'),
     ]
