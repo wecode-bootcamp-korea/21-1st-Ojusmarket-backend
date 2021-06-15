@@ -1,40 +1,37 @@
-import json
-
 from django.views import View
 from django.http import JsonResponse
+from django.db.models  import Q
 
-from recipe.models import Recipe
+from recipe.models import Recipe  
 
 class RecipesView(View):
+    
     def get(self, request):
-
         category_id = request.GET.get('category_id', None)
-        if category_id == None:
 
-            recipe_results = Recipe.objects.all()
+        # CASE 1
+        q = Q()
+        if category_id:
+            q &= Q(category_id=category_id)
 
-            recipes_result = []
+        recipes = Recipe.objects.filter(q)
 
-            for recipe_result in recipe_results:
-                recipes_result.append({
-                    'id'          : recipe_result.id,
-                    'name'        : recipe_result.name,
-                    'image_url'   : recipe_result.image_url,
-                    'category_id' : recipe_result.category_id
-                })
 
-            return JsonResponse({'recipe': recipes_result}, status=200)
+        # CASE 2
+        # recipes = Recipe.objects.all()
 
-        recipe_results = Recipe.objects.filter(category_id = category_id)
+        # if category_id:
+        #     recipes = recipes.filter(category_id=category_id)
 
-        recipes_result = []
+        results = []
 
-        for recipe_result in recipe_results:
-            recipes_result.append({
-                'id'          : recipe_result.id,
-                'name'        : recipe_result.name,
-                'image_url'   : recipe_result.image_url,
-                'category_id' : recipe_result.category_id
+        for recipe in recipes:
+            results.append({
+                'id'          : recipe.id,
+                'name'        : recipe.name,
+                'image_url'   : recipe.image_url,
+                'category_id' : recipe.category_id
             })
 
-        return JsonResponse({'recipe': recipes_result}, status=200)
+        return JsonResponse({'recipes': results}, status=200)   
+        
