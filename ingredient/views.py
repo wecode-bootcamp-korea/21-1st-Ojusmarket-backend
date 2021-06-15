@@ -8,12 +8,12 @@ from ingredient.models      import Ingredient
 class IngredientView(View):
     def get (self, request, ingredient_id): 
         try: 
-            ingredient  = Ingredient.objects.get(id=ingredient_id) 
-            recipe_info = Recipe.objects.filter(ingredientrecipe__ingredient=ingredient_id) 
+            ingredient  = Ingredient.objects.get(id=ingredient_id)
+            recipe_all=  ingredient.recipe.all()
             recipe_list = [{
                 "id"        : recipe.id,
                 "name"      : recipe.name,
-                "image_url" : recipe.image_url} for recipe in recipe_info] 
+                "image_url" : recipe.image_url} for recipe in recipe_all]
             result = {
                 "id"               : ingredient.id,
                 "name"             : ingredient.name,
