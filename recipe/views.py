@@ -13,7 +13,6 @@ class RecipesView(View):
         q = Q()
         if category_id:
             q &= Q(category_id=category_id)
-
         recipes = Recipe.objects.filter(q)
 
 
