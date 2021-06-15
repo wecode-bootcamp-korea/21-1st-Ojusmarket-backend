@@ -1,15 +1,15 @@
-import json
-import re
-import bcrypt
+import json, re, bcrypt, jwt
 
 from django.views     import View
 from django.http      import JsonResponse
 from django.db.models import Q
 
+from .utils       import login_decorator
 from .models      import User
+from my_settings  import SECRET_KEY, ALGORITHM
 
 class UserIdentityCheck(View):
-    def post(self,request):
+    def post(self, request):
         try:
             data = json.loads(request.body)
 
@@ -22,7 +22,7 @@ class UserIdentityCheck(View):
             return JsonResponse({"message": "KEY_ERROR"}, status=400)
 
 class UserSignUp(View):
-    def post(self,request):
+    def post(self, request):
         try:
             data = json.loads(request.body)
 
@@ -60,3 +60,21 @@ class UserSignUp(View):
         except KeyError :
             return JsonResponse({"message": "KEY_ERROR"}, status=400)
 
+class SigninView(View):
+    def post(self, request):
+        try:
+            data     = json.loads(request.body)
+            identity = data ['identity']
+            password = data ['password']
+            
+            if not User.objects.filter(identity = identity).exists():
+                return JsonResponse({'message': 'INVALID_USER'}, status=401) 
+
+            user = User.objects.get(identity=identity)
+            
+            if not bcrypt.checkpw(password.encode('utf-8'), user.password.encode('utf-8')):
+                return JsonResponse({'message': 'INVALID_USER'}, status=401)
+        
+            return JsonResponse({'acess_token' : jwt.encode({'id':user.id}, SECRET_KEY, ALGORITHM)}, status=200)
+        except KeyError:
+            return JsonResponse({'message': 'KEY_ERROR'}, status=400)

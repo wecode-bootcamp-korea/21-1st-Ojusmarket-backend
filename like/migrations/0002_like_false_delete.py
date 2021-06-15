@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='like',
             name='false_delete',
-            field=models.BooleanField(default='False'),
+            field=models.BooleanField(default=False),
             preserve_default=False,
         ),
     ]

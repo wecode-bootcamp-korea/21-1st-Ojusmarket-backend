@@ -8,6 +8,6 @@ class Like(models.Model):
     user         = models.ForeignKey(User, on_delete=models.CASCADE,related_name='like_user')
     ingredient   = models.ForeignKey(Ingredient, on_delete=models.CASCADE,related_name='like_ingredient')
     false_delete = models.BooleanField(default=False) 
-
+    
     class Meta:
         db_table = 'likes'
