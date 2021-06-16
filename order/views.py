@@ -11,20 +11,23 @@ from user.utils import login_decorator
 
 class OrderpageView(View):
     @login_decorator
-    def post(self, request, ingredient_id):
+    def post(self, request):
         try:
             data   = json.loads(request.body)
             user   = request.user
-            cart   = Cart.objects.filter(user=user)
+            cart  = Cart.objects.filter(user=user)
+            status = OrderStatus.objects.get(id=1)
             
-            if not cart.exists():
-                return JsonResponse({'message' : 'CART_DOES_NOT_EXIST'}, status=400)
+            if not Order.objects.filter(address = data['address']).exists:
+            
+                return JsonResponse({'message' : 'ADDRESS_DOSE_NOT_EXIST'}, status=400)
             
             order_info  = Order.objects.create(
-                cart    = Cart.objects.filter(user=user),
-                address = data.get('address', cart.user.address)
+                cart    = cart[0],
+                status  = status,
+                address = data['address']
             )
-
+    
             return JsonResponse({"message" : "SUCCESS"}, status=200)
 
         except KeyError:
@@ -34,7 +37,7 @@ class OrderpageView(View):
     def get(self, request):
         try:
             user = request.user
-            cart = Cart.objects.filter(user=user)
+            cart = Cart.objects.get(user=user)
         
             user_list = [{
                 'name'    : cart.user.name,
@@ -53,11 +56,11 @@ class PaymentView(View):
         try:
             user = request.user
             order = Order.objects.get(user=user)
-            cart = Cart.objects.filter(user=user)
+            cart = Cart.objects.get(user=user)
 
             payment_list = [{
-                'name' : order.cart.user.name,
-                'address' : order.cart.user.address,
+                'name' : order.cart.user_id.name,
+                'address' : order.cart.user_id.address,
                 'price' : order.cart.ingredient.price * cart.count
             }]
 

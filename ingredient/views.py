@@ -28,3 +28,4 @@ class IngredientsView(View):
             })
 
         return JsonResponse({'ingredients' : result}, status=200)
+        
