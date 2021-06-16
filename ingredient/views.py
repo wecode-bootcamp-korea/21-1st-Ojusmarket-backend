@@ -33,7 +33,6 @@ class IngredientView(View):
     def get (self, request, ingredient_id): 
         try: 
             ingredient  = Ingredient.objects.get(id=ingredient_id)
-            recipe_all  = ingredient.recipe.all()
             result = {
                 "id"               : ingredient.id,
                 "name"             : ingredient.name,
@@ -42,9 +41,10 @@ class IngredientView(View):
                 "storage"          : ingredient.storage,
                 "image_url"        : ingredient.image_url,
                 "related_recipes"  : [{
-                                        "id"        : recipe.id,
-                                        "name"      : recipe.name,
-                                        "image_url" : recipe.image_url} for recipe in recipe_all]
+                    "id"        : recipe.id,
+                    "name"      : recipe.name,
+                    "image_url" : recipe.image_url
+                } for recipe in ingredient.recipe.all()]
             }
             return JsonResponse({"ingredient":result})
         except Ingredient.DoesNotExist:
