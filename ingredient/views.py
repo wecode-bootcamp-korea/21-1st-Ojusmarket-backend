@@ -11,7 +11,8 @@ class IngredientsView(View):
 
         q = Q()
         if category_id:
-            q &= Q(category_id=category_id)
+            
+            q &= Q(category__main_category__id=category_id)
 
         ingredients = Ingredient.objects.filter(q)
 
@@ -28,4 +29,3 @@ class IngredientsView(View):
             })
 
         return JsonResponse({'ingredients' : result}, status=200)
-        

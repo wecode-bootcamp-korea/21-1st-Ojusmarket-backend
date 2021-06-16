@@ -44,8 +44,6 @@ class PaymentView(View):
                 'price'   : total
             }]
 
-            Cart.objects.filter(user=user).delete()
-
             return JsonResponse({'payment' : payment_list}, status=200)
 
         except KeyError:
