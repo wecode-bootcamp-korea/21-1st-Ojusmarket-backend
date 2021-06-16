@@ -12,7 +12,7 @@ def login_decorator(func):
           payload        = jwt.decode(identity_token, SECRET_KEY, ALGORITHM)
           user           = User.objects.get(id = payload['id'])
           request.user   = user
-          print(request.user)
+          
       except jwt.exceptions.DecodeError:
           return JsonResponse({'message': 'INAVLID TOKEN'}, status=400)       
       except User.DoesNotExist:
