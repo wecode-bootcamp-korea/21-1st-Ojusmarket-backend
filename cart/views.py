@@ -60,21 +60,35 @@ class CartListView(View):
         except Cart.DoesNotExist:
           return JsonResponse({'message': 'THIS_ACCOUNT_DOES_NOT_EXIST'}, status=400)
 
-    # def delete(self,request):
-    #      try:
-    #         data = json.loads(request.body)
-    #         user = request.user
+    @login_decorator
+    def delete(self,request):
+        try:
+            data = json.loads(request.body)
+            user = request.user
+            #data = [ingredient_ids['ingredient_id'] for ingredient_ids in datas]
 
-    #         ingredient_info    = Cart.objects.filter(user_id=user)
-    #         ingredient_id_list = [] 
+            # for ingredient_ids in datas : #datas = [{key:value},{key:value}]
+            #     data.append(ingredient_ids['ingredient_id'])#data = [1,5,8, ...]
+            # for ingredient_id in data :
+            #     Cart.objects.filter(user=request.user,ingredient_id=ingredient_id).delete()
+
+            # for data_i in data :
+            #     Cart.objects.filter(user=request.user, ingredient_id = data_i['ingredient']).delete()
+            [Cart.objects.filter(user_id=user.id, ingredient_id = data_i['ingredient_id']).delete() for data_i in data]
+            # user = request.user
+
+            # users    = Cart.objects.filter(user_id=request.user)
+            # ingredient_id_list = [] 
             
-    #         for ingredient_id in ingredient_info :
-    #             ingredient_id_list.append(ingredient_id['ingredient_id'])
+            # for ingredient_id in ingredient_info :
+            #     ingredient_id_list.append(ingredient_id['ingredient_id'])
 
-    #         for id_delete in ingredient_id_list:
-    #             Cart.objects.filter(ingredient_id=id_delete).delete()
-    #         return JsonResponse({'message': 'SUCCESSFUL_DELETION'}, status=200)
-    #         #필터 쿼리셋 자체를 삭제함으로 한번에 모아진 쿼리셋을 삭제할 수 있는 방법 찾기    
+            # for id_delete in ingredient_id_list:
+            #     Cart.objects.filter(ingredient_id=id_delete).delete()
+            # return JsonResponse({'message': 'SUCCESSFUL_DELETION'}, status=200)
+            #필터 쿼리셋 자체를 삭제함으로 한번에 모아진 쿼리셋을 삭제할 수 있는 방법 찾기    
 
-    #      except KeyError:
-    #          return JsonResponse({"message": "KEY_ERROR"}, status=400)
+            
+
+        except KeyError:
+            return JsonResponse({"message": "KEY_ERROR"}, status=400)
