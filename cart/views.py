@@ -67,6 +67,21 @@ class CartListView(View):
             user = request.user
             
             [Cart.objects.filter(user_id=user.id, ingredient_id = data_i['ingredient_id']).delete() for data_i in data]
+            return JsonResponse({"message": "SUCCESSFUL_DELETION"}, status=200)
+
+        except KeyError:
+            return JsonResponse({"message": "KEY_ERROR"}, status=400)
+        
+        except Cart.DoesNotExist:
+          return JsonResponse({'message': 'THIS_ACCOUNT_DOES_NOT_EXIST'}, status=400)
+
+    @login_decorator
+    def pach(self,request):
+        try:
+            data = json.loads(request.body)
+            user = request.user
+            
+            
 
         except KeyError:
             return JsonResponse({"message": "KEY_ERROR"}, status=400)
