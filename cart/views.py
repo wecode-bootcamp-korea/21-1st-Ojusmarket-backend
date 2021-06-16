@@ -79,11 +79,10 @@ class CartListView(View):
     def patch(self,request):
         try:
             data = json.loads(request.body)
-            user = request.user
             
             for data_i in data :
-                cart = Cart.objects.get(user=user, ingredient_id=data_i['ingredient_id'])
-                Cart.objects.filter(user=user, ingredient_id=data_i['ingredient_id'], count=cart.count).update(count=data_i['count'])
+                cart = Cart.objects.get(user=request.user, ingredient_id=data_i['ingredient_id'])
+                Cart.objects.filter(user=request.user, ingredient_id=data_i['ingredient_id'], count=cart.count).update(count=data_i['count'])
             return JsonResponse({"message": "SUCCESSFUL_UPDATE"}, status=200)
 
         except KeyError:
