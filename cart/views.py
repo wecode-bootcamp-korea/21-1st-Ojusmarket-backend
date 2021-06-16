@@ -76,12 +76,15 @@ class CartListView(View):
           return JsonResponse({'message': 'THIS_ACCOUNT_DOES_NOT_EXIST'}, status=400)
 
     @login_decorator
-    def pach(self,request):
+    def patch(self,request):
         try:
             data = json.loads(request.body)
             user = request.user
             
-            
+            for data_i in data :
+                cart = Cart.objects.get(user=user, ingredient_id=data_i['ingredient_id'])
+                Cart.objects.filter(user=user, ingredient_id=data_i['ingredient_id'], count=cart.count).update(count=data_i['count'])
+            return JsonResponse({"message": "SUCCESSFUL_UPDATE"}, status=200)
 
         except KeyError:
             return JsonResponse({"message": "KEY_ERROR"}, status=400)
