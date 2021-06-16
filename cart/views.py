@@ -70,3 +70,6 @@ class CartListView(View):
 
         except KeyError:
             return JsonResponse({"message": "KEY_ERROR"}, status=400)
+        
+        except Cart.DoesNotExist:
+          return JsonResponse({'message': 'THIS_ACCOUNT_DOES_NOT_EXIST'}, status=400)
