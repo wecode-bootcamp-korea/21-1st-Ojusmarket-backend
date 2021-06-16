@@ -32,14 +32,14 @@ class RecipeView(View):
             recipe          = Recipe.objects.get(id=recipe_id) 
             ingredient_all  = recipe.ingredient_set.all()
             result = {
-                "id"                 : recipe.id,
-                "name"               : recipe.name,
-                "image_url"          : recipe.image_url, 
+                "id"                  : recipe.id,
+                "name"                : recipe.name,
+                "image_url"           : recipe.image_url, 
                 "related_ingredients" : [{
-                "id"        : ingredient.id,
-                "name"      : ingredient.name,
-                "image_url" : ingredient.image_url,
-                "price"     : ingredient.price} for ingredient in ingredient_all]
+                                        "id"        : ingredient.id,
+                                        "name"      : ingredient.name,
+                                        "image_url" : ingredient.image_url,
+                                        "price"     : ingredient.price} for ingredient in ingredient_all]
             }
             return JsonResponse({"recipe":result})
         except Recipe.DoesNotExist:

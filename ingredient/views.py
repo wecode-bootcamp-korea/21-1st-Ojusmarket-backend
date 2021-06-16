@@ -41,7 +41,7 @@ class IngredientView(View):
                 "info"             : ingredient.info,
                 "storage"          : ingredient.storage,
                 "image_url"        : ingredient.image_url,
-                "related_recipes"   : [{
+                "related_recipes"  : [{
                                         "id"        : recipe.id,
                                         "name"      : recipe.name,
                                         "image_url" : recipe.image_url} for recipe in recipe_all]
