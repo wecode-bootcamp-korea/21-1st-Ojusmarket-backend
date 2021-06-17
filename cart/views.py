@@ -32,9 +32,6 @@ class CartListView(View):
         
         except KeyError:
             return JsonResponse({"message": "KEY_ERROR"}, status=400)
-        
-        except Cart.DoesNotExist:
-            return JsonResponse({'message': 'THIS_ACCOUNT_DOES_NOT_EXIST'}, status=400)
     
     @login_decorator
     def get(self,request):
@@ -52,29 +49,20 @@ class CartListView(View):
                     })    
             return JsonResponse({'cart_list':cart_list}, status=200)
 
-        except KeyError:
-            return JsonResponse({"message": "KEY_ERROR"}, status=400)
-
         except Cart.DoesNotExist:
-            return JsonResponse({'message': 'THIS_ACCOUNT_DOES_NOT_EXIST'}, status=400)
+            return JsonResponse({"message": "DOSE_NOT_EXIST"}, status=400)
 
     @login_decorator
     def delete(self,request):
         try:
             data = json.loads(request.body)
             user = request.user
-            data_list = []
-
-            [data_list.append(cart['id']) for cart in data]
-            carts = Cart.objects.filter(user_id=user.id, ingredient_id__in=data_list)
-            carts.delete()
+            
+            Cart.objects.filter(user_id=user.id, ingredient_id__in=data).delete()
             return JsonResponse({"message": "SUCCESSFUL_DELETION"}, status=204)
 
-        except KeyError:
-            return JsonResponse({"message": "KEY_ERROR"}, status=400)
-        
         except Cart.DoesNotExist:
-            return JsonResponse({'message': 'THIS_ACCOUNT_DOES_NOT_EXIST'}, status=400)
+            return JsonResponse({"message": "DOSE_NOT_EXIST"}, status=400)
 
     @login_decorator
     def patch(self,request):
@@ -88,6 +76,3 @@ class CartListView(View):
 
         except KeyError:
             return JsonResponse({"message": "KEY_ERROR"}, status=400)
-        
-        except Cart.DoesNotExist:
-            return JsonResponse({'message': 'THIS_ACCOUNT_DOES_NOT_EXIST'}, status=400)
