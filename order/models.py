@@ -9,10 +9,11 @@ class OrderStatus(models.Model):
         db_table = 'order_status'
 
 class Order(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    address    = models.CharField(max_length=100)
-    status     = models.ForeignKey(OrderStatus, on_delete=models.CASCADE)
-    
+    created_at   = models.DateTimeField(auto_now_add=True)
+    address      = models.CharField(max_length=100)
+    status       = models.ForeignKey(OrderStatus, on_delete=models.CASCADE)
+    cart         = models.ManyToManyField(Cart, through='OrderItem')
+
     class Meta:
         db_table = 'orders'
 
