@@ -14,6 +14,7 @@ class OrderpageView(View):
     def get(self, request):
         try:
             user = request.user
+
             cart= Cart.objects.filter(user=user)
             
             user_list = [{
@@ -47,7 +48,7 @@ class PaymentView(View):
             return JsonResponse({'payment' : payment_list}, status=200)
 
         except KeyError:
-            JsonResponse({'message' : 'KEYERROR'}, status=400)
+            JsonResponse({'message' : 'KEY_ERROR'}, status=400)
 
     @login_decorator
     def post(self, request):
@@ -64,7 +65,7 @@ class PaymentView(View):
                     status_id = OrderStatus.objects.get(id=1).id
                 )
 
-                new_order = Order.objects.all().last()
+                new_order = Order.objects.last()
 
                 for cart in carts:
                     OrderItem.objects.create(
@@ -77,7 +78,7 @@ class PaymentView(View):
 
                 new_order.cart.all().update(soft_delete =True)
 
-                return JsonResponse({"message": "created"}, status = 201)
+                return JsonResponse({"message": "CREATED"}, status = 201)
 
         except KeyError:
             return JsonResponse({'message': 'KEY_ERROR'}, status = 400)
