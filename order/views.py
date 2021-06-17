@@ -14,8 +14,6 @@ class OrderpageView(View):
     def get(self, request):
         try:
             user = request.user
-
-            cart= Cart.objects.filter(user=user)
             
             user_list = [{
                 'name'    : user.name,
