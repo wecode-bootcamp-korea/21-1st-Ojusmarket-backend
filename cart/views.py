@@ -40,7 +40,7 @@ class CartListView(View):
     @login_decorator
     def get(self,request):
         try:
-            users_ingredient_list = Cart.objects.filter(user=request.user)
+            users_ingredient_list = Cart.objects.filter(user=request.user,soft_delete=False)
             cart_list = []
 
             for cart in users_ingredient_list:
