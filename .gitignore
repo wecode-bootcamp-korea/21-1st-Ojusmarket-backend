@@ -1,9 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,django,visualstudiocode,linux,zsh,macos,vim,pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django,visualstudiocode,linux,zsh,macos,vim,pycharm
-
+db_uploader.py
 my_settings.py
 *.csv
 
+db_uploader.py
 ### VisualStudioCode ###
 .vscode
 !.vscode/settings.json
