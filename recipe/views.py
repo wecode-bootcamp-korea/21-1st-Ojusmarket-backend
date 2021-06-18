@@ -45,5 +45,4 @@ class RecipeView(View):
             }
             return JsonResponse({"recipe":result})
         except Recipe.DoesNotExist:
-            return JsonResponse({"message":"Object does not exist"})         
-        
+            return JsonResponse({"message":"Object does not exist"})

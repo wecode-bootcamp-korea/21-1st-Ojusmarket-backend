@@ -8,6 +8,18 @@ from .utils       import login_decorator
 from .models      import User
 from my_settings  import SECRET_KEY, ALGORITHM
 
+# class UserView(View):
+#     @login_decorator
+#     def get(self, request):
+#         user = {
+#             "id"   : "",
+#             "name" : "",
+#             "phone" : "",
+#             "address" : ""
+#         }
+#         return user 
+
+
 class UserIdentityCheck(View):
     def post(self, request):
         try:
