@@ -17,7 +17,7 @@ class CartListView(View):
             if data['count'] <= 0:
                 return JsonResponse({"message": "LESS_THAN_MINIMUM_QUANTITY"}, status=400) 
 
-            if Cart.objects.filter(user=user, ingredient_id=data['id']).exists():
+            if Cart.objects.filter(user=user, ingredient_id=data['id'],soft_delete=False).exists():
                 cart = Cart.objects.get(user=user, ingredient_id=data['id'])
                 cart.count += data['count']
                 cart.save()
