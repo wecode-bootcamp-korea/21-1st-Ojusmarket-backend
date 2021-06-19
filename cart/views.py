@@ -18,7 +18,7 @@ class CartListView(View):
                 return JsonResponse({"message": "LESS_THAN_MINIMUM_QUANTITY"}, status=400) 
 
             if Cart.objects.filter(user=user, ingredient_id=data['id'],soft_delete=False).exists():
-                cart = Cart.objects.get(user=user, ingredient_id=data['id'])
+                cart = Cart.objects.get(user=user, ingredient_id=data['id'],soft_delete=False)
                 cart.count += data['count']
                 cart.save()
                 return JsonResponse({'message':'ADDITIONAL_SUCCESS'}, status=200) 
@@ -58,7 +58,7 @@ class CartListView(View):
             data = json.loads(request.body)
             user = request.user
             
-            Cart.objects.filter(user_id=user.id, ingredient_id__in=data).delete()
+            Cart.objects.filter(user_id=user.id, ingredient_id__in=data,soft_delete=False).delete()
             return JsonResponse({"message": "SUCCESSFUL_DELETION"}, status=204)
 
         except Cart.DoesNotExist:
@@ -70,8 +70,8 @@ class CartListView(View):
             data = json.loads(request.body)
             
             for data_i in data:
-                cart = Cart.objects.get(user=request.user, ingredient_id=data_i['id'])
-                Cart.objects.filter(user=request.user, ingredient_id=data_i['id'], count=cart.count).update(count=data_i['count'])
+                cart = Cart.objects.get(user=request.user, ingredient_id=data_i['id'],soft_delete=False)
+                Cart.objects.filter(user=request.user, ingredient_id=data_i['id'], count=cart.count,soft_delete=False).update(count=data_i['count'])
             return JsonResponse({"message": "SUCCESSFUL_UPDATE"}, status=200)
 
         except KeyError:
