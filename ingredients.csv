@@ -1,0 +1,42 @@
+id,name,category_id,image_url,price,storage,info
+1,우리콩 초사이언이당 두부,18,https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Japanese_SilkyTofu_%28Kinugoshi_Tofu%29.JPG/440px-Japanese_SilkyTofu_%28Kinugoshi_Tofu%29.JPG,2500,냉장,100% 우리콩과 동해 청정해수를 넣어 만든
+2,"간편 배추우거지, 무청시래기",18,https://upload.wikimedia.org/wikipedia/commons/b/b9/Siraegi.jpg,3700,냉동,푹 삶아 급냉하여 부드럽고 맛있는
+3,광삼원 전통 된장,10,https://upload.wikimedia.org/wikipedia/commons/8/87/Doenjang.jpg,16390,냉장,우리콩으로 만든
+4,무농약 청양고추,1,https://upload.wikimedia.org/wikipedia/commons/5/5d/%EC%B2%AD%EC%96%91%EA%B3%A0%EC%B6%943.jpg,1300,싱싱,무농약이라 안심하고 먹을 수 있는
+5,자연산 깐다슬기살,8,https://upload.wikimedia.org/wikipedia/commons/5/5e/Daseulgi_3.jpg,9310,냉동,100% 국내산
+6,토종 햇 다진마늘,11,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Crushed-Garlic_32885-480x360_%284904476989%29.jpg/640px-Crushed-Garlic_32885-480x360_%284904476989%29.jpg,4320,싱싱,햇마늘 사용한
+7,무농약 홍고추,1,https://upload.wikimedia.org/wikipedia/commons/2/2e/Korea_Tradition_with_Pepper.jpg,2100,싱싱,건강과 젊음의 붉은 맛!
+8,바지락황태국,16,https://upload.wikimedia.org/wikipedia/commons/d/d0/Bugeo-guk.jpg,12000,냉동,큼직한 황태와 국내산 바지락이 더해져 시원한 국물맛이 일품
+9,자연에찬 소고기 미역국,16,https://upload.wikimedia.org/wikipedia/commons/3/36/Miyeok-guk.jpg,5900,냉동,마음까지 든든한 값싸고 영양 많은 대표적 국민 먹거리
+10,수식한우 양지 국거리,4,https://images.unsplash.com/photo-1600180786608-28d06391d25c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80,30000,냉장,육질이 부드럽고 육즙이 풍부한 양지부위 국거리
+11,무농약 홍고추,1,https://upload.wikimedia.org/wikipedia/commons/2/2e/Korea_Tradition_with_Pepper.jpg,2100,싱싱,건강과 젊음의 붉은 맛!
+12,자연에찬 비지찌개,16,https://images.unsplash.com/photo-1461088945293-0c17689e48ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80,7250,냉동,국산콩을 갈아만든
+13,무항생제 두돈 앞다리 불고기용(500g),3,https://images.unsplash.com/photo-1600180786489-2e9a5b4041b5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80,12000,냉장,담백하고 쫄깃한 한돈
+14,무농약 양파(800g),1,https://upload.wikimedia.org/wikipedia/commons/1/1b/Onions.jpg,2600,싱싱,싱싱하고 영양가득
+15,썰은김치(1.4kg),18,https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Gimchi.jpg/1920px-Gimchi.jpg,16900,냉장,"맛깔스러운 빛깔, 아삭아삭한 식감, 개운한 맛을 자랑하는"
+16,비비쿡 처음먹는 까망소시지 (300g),17,https://upload.wikimedia.org/wikipedia/commons/8/8b/Kielbasa7.jpg,13000,냉동,제주 흑돼지와 영양만점 블랙푸드로 만든 건강 소시지
+17,파프리카 빨강 1개,1,https://images.unsplash.com/photo-1609869882409-a5274ce68923?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80,2000,싱싱,아침에 먹기좋은
+18,파프리카 노랑 1개,1,https://recipe1.ezmember.co.kr/cache/rpg/2016/04/05/XKQBRx_56a18ac314024.jpg,2000,싱싱,비타민이 가장 풍부한
+19,인공에찬 동태전(300g),16,https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Dongtae-jeon.jpg/640px-Dongtae-jeon.jpg,10000,냉동,맛과 영양이 풍부한 식감이 일품인 한번익힌
+20,레옹 현미유(500ml),12,https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Olive_oil_2.jpg/640px-Olive_oil_2.jpg,6600,실온,레옹오리자놀을 함유한 식물성 식용유
+21,인공에찬 녹두전(300g),16,https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Korean_pancake-Jeon-01.jpg/640px-Korean_pancake-Jeon-01.jpg,12500,냉동,국산 녹두와 무항생제 돼지고기를 사용하여 만든전
+22,작은바위 실버당면 (500g),13,https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Dongfen.JPG/460px-Dongfen.JPG,5800,실온,국내산 고구마전분 100%
+23,무농약 느타리버섯(200g),2,https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Mushrooms-3757805_960_720.jpg/2560px-Mushrooms-3757805_960_720.jpg,2000,실온,다이어트에 좋은 건강식
+24,토종 자연산 민물새우 (200g/팩),7,https://images.unsplash.com/photo-1548587468-971ebe4c8c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80,7400,냉동,진한 감칠맛을 품은 100% 토종 민물새우
+25,손질꽃게 (400g),7,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Portunus_trituberculatus.jpg/1920px-Portunus_trituberculatus.jpg,14000,냉동,손질없이 바로 조리할수 있는
+26,청결 고춧가루 (130g),11,https://upload.wikimedia.org/wikipedia/commons/e/e0/Gochugaru.jpg,8000,실온,임실지역에서 재배한 임실고추로 만든
+27,친환경 양송이버섯 (180g전후),2,https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Champignons_Agaricus.jpg/440px-Champignons_Agaricus.jpg,4500,실온,향이 좋고 쫄깃한 갈색 양송이
+28,유기농 먹어봤니 토마토 바질파스타 소스 (709g),11,https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/%D0%9F%D0%B5%D1%81%D1%82%D0%BE_%D1%81%D0%BE%D1%812.jpg/640px-%D0%9F%D0%B5%D1%81%D1%82%D0%BE_%D1%81%D0%BE%D1%812.jpg,9800,냉장,유기농 토마토를 사용한
+29,우리밀 통밀국수 (400g),13,https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Chinese_noodle.JPG/640px-Chinese_noodle.JPG,3800,실온,우리밀의 구수함이 살아있는
+30,캉골 고로쇠간장 (120ml),10,https://upload.wikimedia.org/wikipedia/commons/6/63/Soy_sauce_2.jpg,11500,냉장,고로쇠물로 만든 프리미엄 한식 간장(조선간장)
+31,토종 햇 다진마늘,11,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Crushed-Garlic_32885-480x360_%284904476989%29.jpg/640px-Crushed-Garlic_32885-480x360_%284904476989%29.jpg,4320,싱싱,햇마늘 사용한
+32,햄토리 핫케이크 가루,13,https://images.unsplash.com/photo-1579534600649-60e3ae85ef29?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80,5400,실온,화학첨가물 없는
+33,유기농 갈색설탕,11,https://images.unsplash.com/photo-1586794234236-efd0ffb207b2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=682&q=80,1950,실온,유기농 설탕
+34,인공이란 동물복지유정란(10구),5,https://images.unsplash.com/photo-1506976785307-8732e854ad03?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1282&q=80,4500,실온,동물복지농장에서 키운 무항생제 닭의 건강한
+35,우리밀 고소한 백밀가루 (750g),13,https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80,3900,실온,"고소한 냄새, 쫄깃하고 부드러운 맛!"
+36,프레지덩 무염버터 200g(10g*20개),14,https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/NCI_butter.jpg/2560px-NCI_butter.jpg,7500,냉장,"따로 포장되어 휴대하기 간편하고,보관하기 편한 실용만점 버터!"
+37,올레길 자연치즈 (300g),14,https://images.unsplash.com/photo-1589881133825-bbb3b9471b1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80,12000,냉장,제주도 청정원유
+38,원주청청우유(900ml),14,https://upload.wikimedia.org/wikipedia/commons/0/0e/Milk_glass.jpg,4500,냉장,건강한 젖소의 원유로 만든 
+39,"유기농 블루베리 (500g,냉동)",15,https://upload.wikimedia.org/wikipedia/commons/8/88/PattsBlueberries.jpg,10900,냉동,유기농 농법으로 안전하게 키운 100% 유기농 블루베리
+40,이거사조참치 마일드(100g),17,https://images.unsplash.com/photo-1566177229701-8895c29b9c68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80,1650,실온,손이 안전한 안심따개를 사용한
+41,우리밀 옥수수식빵(300g),15,https://images.unsplash.com/photo-1598373182308-3270495d2f58?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80,4300,실온,우리밀이라 더 건강한 식빵입니다.
