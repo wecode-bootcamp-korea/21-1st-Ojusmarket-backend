@@ -66,7 +66,7 @@ class PaymentView(View):
                 if cart.soft_delete == True:
                     return JsonResponse({"message": "SOFT_DELETE_ERROR"}, status = 400)
 
-                new_order.cart.all().update(soft_delete =True)
+                new_order.cart.filter.all().update(soft_delete =True)
 
                 return JsonResponse({"message": "CREATED"}, status = 201)
 
