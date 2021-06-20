@@ -90,3 +90,19 @@ class SigninView(View):
             return JsonResponse({'acess_token' : jwt.encode({'id':user.id}, SECRET_KEY, ALGORITHM)}, status=200)
         except KeyError:
             return JsonResponse({'message': 'KEY_ERROR'}, status=400)
+
+class UserView(View):
+    @login_decorator
+    def get(self, request):
+        try:
+            user = request.user
+            
+            user_list = [{
+                'name'    : user.name,
+                'phone'   : user.phone,
+                'address' : user.address
+            }]
+            return JsonResponse({'user' : user_list}, status=200)
+
+        except KeyError:
+            JsonResponse({'message' : 'KEY_ERROR'}, status=400)
