@@ -97,11 +97,11 @@ class UserView(View):
         try:
             user = request.user
             
-            user_list = [{
+            user_list = {
                 'name'    : user.name,
                 'phone'   : user.phone,
                 'address' : user.address
-            }]
+            }
             return JsonResponse({'user' : user_list}, status=200)
 
         except KeyError:
