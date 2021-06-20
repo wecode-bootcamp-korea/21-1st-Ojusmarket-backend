@@ -9,40 +9,9 @@ from .models import Order, OrderItem, OrderStatus
 
 from user.utils import login_decorator
 
-class OrderpageView(View):
-    @login_decorator
-    def get(self, request):
-        try:
-            user = request.user
-            
-            user_list = [{
-                'name'    : user.name,
-                'phone'   : user.phone,
-                'address' : user.address
-            }]
-            return JsonResponse({'user' : user_list}, status=200)
 
-        except KeyError:
-            JsonResponse({'message' : 'KEY_ERROR'}, status=400)
 
 class PaymentView(View):
-    @login_decorator
-    def get(self, request):
-        try:
-            user = request.user
-            total = 0
-            for a in user.cart_set.filter(soft_delete=False):
-                total += a.ingredient.price * a.count
-            payment_list = [{
-                'name'    : user.name,
-                'address' : user.address,
-                'price'   : total
-            }]
-            return JsonResponse({'payment' : payment_list}, status=200)
-
-        except KeyError:
-            JsonResponse({'message' : 'KEY_ERROR'}, status=400)
-
     @login_decorator
     def post(self, request):
         try:
@@ -62,11 +31,6 @@ class PaymentView(View):
                         order_id = new_order.id,
                         cart_id  = cart.id
                     )
-
-                if cart.soft_delete == True:
-                    return JsonResponse({"message": "SOFT_DELETE_ERROR"}, status = 400)
-
-                new_order.cart.filter.all().update(soft_delete =True)
 
                 return JsonResponse({"message": "CREATED"}, status = 201)
 
