@@ -9,8 +9,6 @@ from .models import Order, OrderItem, OrderStatus
 
 from user.utils import login_decorator
 
-
-
 class PaymentView(View):
     @login_decorator
     def post(self, request):
