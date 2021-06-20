@@ -1,4 +1,5 @@
 # 21-1st-Ojusmarket-backend
+![레이어 3](https://user-images.githubusercontent.com/78678551/122677514-92942900-d21d-11eb-8ddb-d94491a41c57.png)
 
 ### 🌽 O Jus Maket (오져스 마켓) **Team**
 
