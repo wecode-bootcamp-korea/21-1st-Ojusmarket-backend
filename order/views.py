@@ -30,19 +30,14 @@ class PaymentView(View):
     def get(self, request):
         try:
             user = request.user
-            
             total = 0
-
-            for a in user.cart_set.all():
-
+            for a in user.cart_set.filter(soft_delete=False):
                 total += a.ingredient.price * a.count
-
             payment_list = [{
                 'name'    : user.name,
                 'address' : user.address,
                 'price'   : total
             }]
-
             return JsonResponse({'payment' : payment_list}, status=200)
 
         except KeyError:
@@ -52,10 +47,8 @@ class PaymentView(View):
     def post(self, request):
         try:
             data = json.loads(request.body)
-            
             with transaction.atomic():
                 cart_ingredient = [cart["id"] for cart in data["cart"]]
-
                 carts = Cart.objects.filter(user_id = request.user.id, ingredient_id__in = cart_ingredient)
 
                 Order.objects.create(
@@ -64,7 +57,6 @@ class PaymentView(View):
                 )
 
                 new_order = Order.objects.last()
-
                 for cart in carts:
                     OrderItem.objects.create(
                         order_id = new_order.id,
