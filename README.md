@@ -78,7 +78,7 @@ Common | Restful API, KAKAO post API, AWS(EC2,RDS)
 
 **저희 오져스마켓 팀은 팀원간의 원활한 커뮤니케이션을위해 다양한 수단을 사용했습니다.**
 
-APP | [Notion](https://www.notion.so/163f5d1be77f4dd7a33ec0377c2f0a6a) , Trello, Google spreadsheet, Slack
+APP | [Notion](https://www.notion.so/163f5d1be77f4dd7a33ec0377c2f0a6a) , [Trello](https://trello.com/b/S8Bjq4QR/ojusmarket), Google spreadsheet, Slack
 
 Scrum | 스크럼 방식을 사용하여 매일 아침 미팅을 통해 어제 한 일, 오늘 할 일, blocker 세 가지를 공유하며 팀원들과 미팅을 진행하였습니다.
 
